@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccessHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page-shell">
+    <header class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">JWT access playground</p>
+            <h1>AccessHub puts your auth flow, token state, and role access.</h1>
+            <p class="hero-text">
+                Sign up, sign in, inspect your JWT-backed session, and probe public, user, moderator, and admin routes
+                without leaving the page.
+            </p>
+            <div class="hero-pills">
+                <span>Spring Boot</span>
+                <span>JWT</span>
+                <span>Role-Based Access</span>
+            </div>
+        </div>
+        <div class="hero-card">
+            <p class="hero-card-label">Session State</p>
+            <h2 id="sessionTitle">Not signed in</h2>
+            <p id="sessionSummary">Create an account or sign in to store your token locally and unlock protected checks.</p>
+            <button id="logoutButton" class="ghost-button" type="button">Log out</button>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="panel">
+            <div class="panel-heading">
+                <p class="section-kicker">Register</p>
+                <h2>Create account</h2>
+            </div>
+            <form id="signupForm" class="stack">
+                <label>
+                    <span>Username</span>
+                    <input type="text" name="username" minlength="3" maxlength="20" required placeholder="jane_doe">
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email" name="email" maxlength="50" required placeholder="jane@example.com">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password" minlength="6" maxlength="40" required placeholder="At least 6 characters">
+                </label>
+                <fieldset class="role-picker">
+                    <legend>Roles</legend>
+                    <label><input type="checkbox" name="role" value="user" checked> User</label>
+                    <label><input type="checkbox" name="role" value="mod"> Moderator</label>
+                    <label><input type="checkbox" name="role" value="admin"> Admin</label>
+                </fieldset>
+                <button class="primary-button" type="submit">Create account</button>
+            </form>
+            <p id="signupMessage" class="message" aria-live="polite"></p>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <p class="section-kicker">Authenticate</p>
+                <h2>Sign in</h2>
+            </div>
+            <form id="signinForm" class="stack">
+                <label>
+                    <span>Username</span>
+                    <input type="text" name="username" required placeholder="jane_doe">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password" required placeholder="Your password">
+                </label>
+                <button class="primary-button" type="submit">Sign in</button>
+            </form>
+            <p id="signinMessage" class="message" aria-live="polite"></p>
+        </section>
+
+
+        <section class="panel panel-wide">
+            <div class="panel-heading">
+                <p class="section-kicker">Profile</p>
+                <h2>Current session data</h2>
+            </div>
+            <dl id="profileDetails" class="profile-grid">
+                <div>
+                    <dt>User ID</dt>
+                    <dd>-</dd>
+                </div>
+                <div>
+                    <dt>Username</dt>
+                    <dd>-</dd>
+                </div>
+                <div>
+                    <dt>Email</dt>
+                    <dd>-</dd>
+                </div>
+                <div>
+                    <dt>Roles</dt>
+                    <dd>-</dd>
+                </div>
+            </dl>
+        </section>
+    </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
