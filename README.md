@@ -88,3 +88,7 @@ GET /api/test/user → USER access
 GET /api/test/mod → MODERATOR access
 
 GET /api/test/admin → ADMIN access
+
+## 📸 Screenshots
+
+![Dashboard](AccessHub.png)
